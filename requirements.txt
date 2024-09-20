@@ -1,0 +1,12 @@
+Cython==3.0.9
+json-tricks==3.17.3
+munkres==1.1.4
+pycocotools==2.0.7
+PyYAML==6.0.1
+torch==2.0.1
+torchaudio==2.0.2
+torchvision==0.15.2
+tqdm==4.66.2
+yacs==0.1.8
+numpy==1.26.4
+opencv-python
