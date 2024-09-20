@@ -20,27 +20,12 @@ The code is developed using python 3.11.8 on Ubuntu 20.04. NVIDIA GPUs are neede
 ```
    pip install -e .
 ```
-5. Init output(training model output directory) and log(tensorboard log directory) directory:
+4. Init output(training model output directory) and log(tensorboard log directory) directory:
 
 ```
    mkdir output 
    mkdir log
 ```
-
-   Your directory tree should look like this:
-
-```
-   ${POSE_ROOT}
-   ├── model
-   ├── experiments
-   ├── lib
-   ├── tools 
-   ├── log
-   ├── output
-   ├── README.md
-   └── requirements.txt
-```
-
 5. Download pretrained models and our well-trained models from ([GoogleDrive](https://drive.google.com/drive/folders/1QDI60Fs1QoDDNviU4WPKSxga0PKcsKGd?usp=sharing)) and make models directory look like this:
 ```
     ${POSE_ROOT}
@@ -52,8 +37,7 @@ The code is developed using python 3.11.8 on Ubuntu 20.04. NVIDIA GPUs are neede
 ```
    
 ### Directory Tree
-
-1. Please organize your directory tree as follow:
+Please organize your directory tree as follow:
 ```
    ${POSE_ROOT}
    ├── model
@@ -68,7 +52,7 @@ The code is developed using python 3.11.8 on Ubuntu 20.04. NVIDIA GPUs are neede
 ### Data preparation
 
 **For ExLPose data**, please download from [ExLPose download](http://cg.postech.ac.kr/research/ExLPose/).
-Download and extract them under {DATASET_ROOT}, and make them look like this:
+Extract them under {DATASET_ROOT}, and make them look like this:
 ```
    ${DATASET_ROOT}
    |-- Annotations
