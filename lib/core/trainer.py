@@ -171,7 +171,7 @@ class KnowledgeAcquisition(nn.Module):
         offset = offsets[:, center_y.long(), center_x.long()].permute(1, 0) # n x k*2
         offset_list = offset.split(2, dim=-1)
         offset = torch.stack(offset_list, dim=1) # n x k x 2
-        locations = centers.unsqueeze(1) - offset #n x k x 2
+        locations = centers[:,:,:2] - offset #n x k x 2
         
         n, k, _ = locations.shape
         fake_scores = torch.ones(n, k, 1).to(offset.device) # n, k, 1
