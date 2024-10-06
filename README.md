@@ -6,27 +6,27 @@
 This is the official repository for the ECCV'24 paper: Domain-Adaptive 2D Human Pose Estimation via Dual Teachers in Extremely Low-Light Conditions.
 
 ## Environment
-The code is developed using python 3.11.8 on Ubuntu 20.04. NVIDIA GPUs are needed. The code is developed and tested using 4 NVIDIA RTX 3090 GPU cards. Other platforms are not fully tested.
+The code is developed using python 3.11.8 on Ubuntu 20.04, and our model is trained on four NVIDIA RTX 3090 GPUs. Other platforms have not been fully tested.
 
 ## Quick start
 ### Installation
-1. Clone this repo, and we'll call the directory that you cloned as ${POSE_ROOT}.
+1. Clone this repo, and we'll call the directory you cloned as ${POSE_ROOT}.
 2. Install dependencies:
 ```
    pip install -r requirements.txt
 ```
 3. Install [CrowdPoseAPI](https://github.com/Jeff-sjtu/CrowdPose).
-   Note that different environments affect the installation of the API. In our case, please use the following command.
+   Different environments may affect the installation of the API. In our case, we use the following command. (Note: You may encouter an AttributeError when using CrowdPoseAPI due to deprecated numpy features, just follow the prompted instructions and make changes should be fine.)
 ```
    pip install -e .
 ```
-4. Init output(training model output directory) and log(tensorboard log directory) directory:
+4. Create output (training model output directory) and log (tensorboard log directory) directories:
 
 ```
    mkdir output 
    mkdir log
 ```
-5. Download pretrained models and our well-trained models from ([GoogleDrive](https://drive.google.com/drive/folders/1QDI60Fs1QoDDNviU4WPKSxga0PKcsKGd?usp=sharing)) and make models directory look like this:
+5. Download our pretrained models from ([GoogleDrive](https://drive.google.com/drive/folders/1QDI60Fs1QoDDNviU4WPKSxga0PKcsKGd?usp=sharing)) and make model directory look like this:
 ```
     ${POSE_ROOT}
     |-- model
@@ -37,7 +37,7 @@ The code is developed using python 3.11.8 on Ubuntu 20.04. NVIDIA GPUs are neede
 ```
    
 ### Directory Tree
-Please organize your directory tree as follow:
+Please organize your project directory tree as follows:
 ```
    ${POSE_ROOT}
    ├── model
@@ -80,12 +80,13 @@ Extract them under {DATASET_ROOT}, and make them look like this:
             `-- 0829_R0000662.JPG
 ```          
 ### Testing
+Note that the default testing configuration uses 4 GPUs. Please adjust this according to your machine’s specifications. 
 
 #### Testing on ExLPose-test LL-A split
 
 ```
    python tools/valid_test.py --cfg experiments/exlpose/test_config.yaml \
-       TEST.MODEL_FILE model/exlpose/model_final.pth DATASET.ROOT ${DATASET_ROOT} \ 
+       TEST.MODEL_FILE model/exlpose/model_final.pth DATASET.ROOT ${DATASET_ROOT} \
             TEST.NMS_THRE 0.15 TEST.SCALE_FACTOR 0.5,1,2 TEST.MATCH_HMP True DATASET.TEST all
 ```
 
