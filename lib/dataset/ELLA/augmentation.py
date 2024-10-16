@@ -59,7 +59,7 @@ class ELLA():
             img = n + img
             img = torch.clamp(img, max=255).type(torch.uint8)
 
-        return x
+        return img
 
 
 
