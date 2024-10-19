@@ -373,6 +373,10 @@ def do_KA_train(cfg, rank, model, data_loader, optimizer, loss_factory, epoch):
         oob_mask = oob_mask.cuda(non_blocking=True)
 
         l_sup, l_unsup = model(real_LL, fake_LL, WL_GTs, oob_mask)
+
+        if l_unsup == 0.:
+            l_sup *= 0.0
+
         loss = l_sup + l_unsup
         optimizer.zero_grad()
         loss.backward()
