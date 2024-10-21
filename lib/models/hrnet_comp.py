@@ -306,7 +306,7 @@ class PoseHigherResolutionNetComp(nn.Module):
                         need_init_state_dict[name] = m
             self.load_state_dict(need_init_state_dict, strict=False)
 
-def get_pose_net(cfg, is_train, **kwargs):
+def get_pose_net(cfg, is_train=True, **kwargs):
     model = PoseHigherResolutionNetComp(cfg, **kwargs)
     if is_train and cfg.MODEL.INIT_WEIGHTS:
         model.init_weights(cfg.MODEL.PRETRAINED_COMP, verbose=cfg.VERBOSE)
