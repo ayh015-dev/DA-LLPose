@@ -119,10 +119,10 @@ class KnowledgeAcquisition(nn.Module):
         super(KnowledgeAcquisition, self).__init__()
         self.cfg = cfg
         
-        self.main = get_pose_net_main(cfg, is_train=False)
+        self.main = get_pose_net_main(cfg)
         for param in self.main.parameters():
             param.requires_grad = False
-        self.comp = get_pose_net_comp(cfg, is_train=False)
+        self.comp = get_pose_net_comp(cfg)
         for param in self.comp.parameters():
             param.requires_grad = False
         self.student = get_pose_net_main(cfg, is_train=True)
