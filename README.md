@@ -144,9 +144,9 @@ Our code is mainly based on [DEKR](https://github.com/HRNet/DEKR).
 ```
 @inproceedings{DA-LLPose,
   title={Domain-Adaptive 2D Human Pose Estimation via Dual Teachers in Extremely Low-Light Conditions},
-  author={Yihao Ai, Yifei Qi, Bo Wang, Yu Chen, Xinchao Wang, Robby T. Tan},
+  author={Ai, Yihao and Qi, Yifei and Wang, Bo and Chen, Yu and Wang, Xinchao and  Tan, Robby T.},
   booktitle={ECCV},
-  year={2024}
+  year={2024},
 }
 ```
 
